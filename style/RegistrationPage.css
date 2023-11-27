@@ -1,0 +1,230 @@
+/* 注册页 */
+.box-s {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 600px;
+    width: 410px;
+    border: 0px solid #000;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 5px 5px 20px #595959;
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.box-s .box-s2 h5 {
+    padding-left: 60%;
+    padding-bottom: 2%;
+    margin-top: -10px;
+}
+
+.box-s .box-s2 a {
+    color: darkorange;
+}
+
+.box-s .box-s2 {
+    text-align: center;
+    padding-top: 8%;
+}
+
+#sjz {
+    color: red;
+}
+
+label {
+    text-align-last: justify;
+}
+
+label {
+    margin-left: 5px;
+}
+
+#wen2 {
+    width: fit-content;
+    font-weight: bolder;
+    font-family: '楷体';
+    color: red;
+}
+
+#wen {
+    color: red;
+    width: fit-content;
+}
+
+#wen3 {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    color: red;
+}
+
+.box-bar5 #img {
+    position: absolute;
+    right: 48px;
+    top: 16px;
+    display: none;
+    width: 21px;
+    height: 32px;
+}
+
+#yhz {
+    color: red;
+}
+
+.box-s2 input {
+    position: relative;
+    all: unset;
+    border-bottom: 2px solid #00000046;
+    margin: 5% 0;
+}
+
+.box-s .ints {
+    padding: 5px 100px;
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.6s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgb(188, 164, 164);
+    font-size: 1em;
+}
+
+.box-s .ints:hover {
+    border-radius: 20px;
+    background-color: #fdffe2e6;
+}
+
+#xian {
+    color: red;
+    padding-top: 70px;
+    padding-left: 5px;
+}
+
+.yanjing img {
+    position: absolute;
+    top: 15px;
+    right: 55px;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+#pp::-ms-reveal {
+    display: none;
+}
+
+.yanjing2 img {
+    position: absolute;
+    top: 15px;
+    right: 55px;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+#pp2::-ms-reveal {
+    display: none;
+}
+
+#YouXiao {
+    position: absolute;
+    left: 320px;
+    /* width: 90px; */
+    margin-top: -63px;
+    border-radius: 20px;
+    color: azure;
+    display: none;
+    background-color: rgb(226, 131, 245);
+}
+
+.box-bar,
+.box-bar2,
+.box-bar3,
+.box-bar4,
+.box-bar5 {
+    position: relative;
+}
+
+.box-bar .bar {
+    position: absolute;
+    left: 242px;
+    top: 100px;
+    width: 0px;
+    height: 2px;
+    background: rgb(0, 0, 0);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.box-bar #pa:focus~.bar {
+    width: 178px;
+}
+
+.box-bar2 .bar2 {
+    position: absolute;
+    left: 242px;
+    top: 43px;
+    width: 0px;
+    height: 2px;
+    background: rgb(0, 0, 0);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.box-bar2 #yx:focus~.bar2 {
+    width: 178px;
+}
+
+.box-bar3 .bar3 {
+    position: absolute;
+    left: 242px;
+    top: 42px;
+    width: 0px;
+    height: 2px;
+    background: rgb(0, 0, 0);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.box-bar3 #sj:focus~.bar3 {
+    width: 178px;
+}
+
+.box-bar4 .bar4 {
+    position: absolute;
+    left: 240px;
+    top: 42px;
+    width: 0px;
+    height: 2px;
+    background: rgb(0, 0, 0);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.box-bar4 #pp:focus~.bar4 {
+    width: 178px;
+}
+
+.box-bar5 .bar5 {
+    position: absolute;
+    left: 240px;
+    top: 42px;
+    width: 0px;
+    height: 2px;
+    background: rgb(0, 0, 0);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.box-bar5 #pp2:focus~.bar5 {
+    width: 178px;
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表白网</title>
+    <link href="../新建文件夹/tobuzi.css" rel="stylesheet" type="text/css">
+    <script src="../新建文件夹/tox.js" defer></script>
+    <script src="../script/cyp.js" defer></script>
+    <style>
+        body {
+            background: url(../游戏1.jpg) no-repeat center/cover fixed;
+        }
+
+        .box1 {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            margin-top: 90px;
+        }
+
+        .box1 input {
+            all: unset;
+            width: 400px;
+            height: 40px;
+            background-color: rgb(212, 212, 212);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .box1 input::placeholder {
+            text-align: center;
+        }
+
+        .box1 input {
+            padding-left: 20px;
+        }
+
+        .box1 input:focus {
+            height: 70px;
+            box-shadow: 0px 1px 20px 1px rgb(195, 0, 255);
+        }
+
+        /* 发送按钮 */
+        .box1 .btn {
+            position: absolute;
+            top: 0;
+            left: 435px;
+            width: 60px;
+            height: 40px;
+            background-color: rgb(255, 108, 223);
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .box1 .btn:hover {
+            box-shadow: 0px 1px 10px 1px rgb(251, 0, 255);
+        }
+
+        .box1 input:focus+.btn {
+            height: 70px;
+        }
+
+        .box1 p {
+            position: relative;
+            top: 0px;
+            left: 330px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .box1 input:focus+.btn+p {
+            opacity: 0.6;
+        }
+
+        .box2 {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 50%;
+            border: 20px solid #000;
+            border-image: url(../hua.png) 50 round;
+        }
+
+        .box2 p {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 800;
+            font-family: 楷体;
+            text-indent: 45px;
+            color: rgb(255, 255, 255);
+            margin-top: 30px;
+        }
+
+        .box2 p.active::after {
+            display: inline-block;
+            content: "";
+            position: relative;
+            top: 3px;
+            Width: 3px;
+            height: 20px;
+            background-color: #000;
+            animation: gb 0.3s infinite;
+        }
+
+        @keyframes gb {
+            to {
+                opacity: 0;
+            }
+        }
+
+        .box2 .btn2 {
+            position: absolute;
+            bottom: -60px;
+            right: 0;
+            padding: 5px 15px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 800;
+            display: none;
+        }
+
+        .box2 .btn2:hover {
+            color: aliceblue;
+            background-color: red;
+        }
+
+        /* 提示 */
+        .tt {
+            display: inline-block;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translate(-50%);
+            width: auto;
+            height: 30px;
+            padding: 15px 20px;
+            background-color: rgb(153, 255, 0);
+            border-radius: 20px;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .tt2 {
+            text-align: center;
+            padding-top: 1px;
+            color: azure;
+        }
+
+        /* 注销按钮 */
+        .box-nr button {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <!-- //提示信息 -->
+        <div class="tt">
+            <h3 class="tt2">您还没有登录！</h3>
+        </div>
+        <div class="box-nr">
+            <div id="myname"></div>
+            <div id="Phone"></div>
+            <button>注销账户</button>
+            <img src="../默认头像.png" alt="">
+            <div id="btnxg">
+                <button>修改密码</button>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <div class="PiFt">
+                    <img src="../默认头像.png" alt="">
+                    <div class="box-s">
+                        <span>个人信息</span>
+                        <span class="sj"></span>
+                    </div>
+                </div>
+            </li>
+            <li><a class="aa1" href="../ViewSpot.html" id="hp" title="返回首页">首页</a></li>
+            <li><a class="aa1" id="aa1" href="javascript:;" title="选择颜色">主题选择</a>
+                <div class="div-s">
+                    <ul class="div-s1">
+                        <li>
+                            <div class="clr" data-color="#Fed71A" style="background-color: #Fed71A;" title="佛手黄">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#EE4866" style="background-color: #EE4866;" title="淡蕊香红">
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="clr" data-color="#7E1671" style="background-color: #7E1671;" title="魏紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#856D72" style="background-color: #856D72;" title="卢灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#74759B" style="background-color: #74759B;" title="螺甸紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#6E8B74" style="background-color: #6E8B74;" title="瓦松绿">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#4A4035" style="background-color: #4A4035;" title="鹤灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F9E9CD" style="background-color: #F9E9CD;" title="米色">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5C3719" style="background-color: #5C3719;" title="古铜褐">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F97D1C" style="background-color: #F97D1C;" title="橘橙">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F0ADA0" style="background-color: #F0ADA0;" title="桃红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#ED5126" style="background-color: #ED5126;" title="朱红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C08EAF" style="background-color: #C08EAF;" title="淡紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#1E131D" style="background-color: #1E131D;" title="乌梅紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5698C3" style="background-color: #5698C3;" title="晴蓝">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C4CBCF" style="background-color: #C4CBCF;" title="大理石灰">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="box1">
+        <input type="search" placeholder="说出想说的话">
+        <button class="btn">发送</button>
+        <p>0/200字</p>
+    </div>
+    <div class="box2" style="display: block;">
+        <!-- <img src="" alt=""> -->
+        <p id="p2"></p>
+        <button class="btn2">清空</button>
+    </div>
+    <script>
+        const ipt = document.querySelector('input');
+        const btn = document.querySelector('.btn');
+        const p = document.querySelector('p');
+        const box2 = document.querySelector('.box2');
+        const p2 = document.querySelector('#p2');
+        const btn2 = document.querySelector('.btn2');
+
+        btn2.addEventListener('click', function () {
+            p2.innerHTML = '';
+            p2.classList.remove('active');  //移除自定义样式
+            btn2.style.display = 'none';
+        })
+        ipt.addEventListener('input', function () {
+            p.innerHTML = `${ipt.value.trim().length}/200字`;
+        });
+
+        function print() {
+            let i = -1;
+            let arr = ipt.value
+            if (ipt.value.trim() && ipt.value.length > 200) {    // trim()去除左右空格
+                alert('内容已超出字数范围');
+            } else if (ipt.value === '') {
+                ipt.value = '';
+            } else {
+                btn2.style.display = 'block';
+                p2.classList.add('active'); //添加自定义样式
+                let ts = setInterval(function () {
+                    i++;
+                    p2.innerHTML += arr.charAt(i).trim();
+                    if (i >= arr.length) { //i大于用户输入字符串的长度关闭定时器
+                        clearInterval(ts);
+                    }
+                }, 50);
+                ipt.value = '';
+                p.innerHTML = `0/200字`;
+                box2.style.display = 'block';
+            }
+        }
+
+        //回车发送
+        ipt.addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
+                print();
+            }
+        })
+        //点击按钮
+        btn.addEventListener('click', function () {
+            print();
+        })
+
+    </script>
+</body>
+
+</html>

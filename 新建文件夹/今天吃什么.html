@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>今天吃什么</title>
+	<link href="../新建文件夹\tobuzi.css" type="text/css" rel="stylesheet">
+	<script src="../新建文件夹\tox.js" defer></script>
+	<script src="../script\cyp.js" defer></script>
+	<style>
+		body {
+			background: url(/image/sw.jpg) no-repeat center/cover fixed;
+			text-align: center;
+
+		}
+
+		.box-cp {
+			font-size: 2em;
+			margin-top: 10%;
+			color: #09ff00;
+			letter-spacing: 20px;
+		}
+
+		.box-cp h1 {
+			margin-bottom: 5%;
+		}
+
+		.box-cp button {
+			border: none;
+			width: 100px;
+			height: 50px;
+			margin-top: 100px;
+			border-radius: 10px;
+			box-shadow: 1px 1px 10px 2px rgb(0, 204, 255);
+			background-color: aqua;
+			transition: all 0.5s;
+		}
+
+		.box-cp button:hover {
+			cursor: pointer;
+			border: 2px solid rgb(128, 198, 245);
+		}
+
+		/* 欢迎提示 */
+		.tt {
+			display: inline-block;
+			position: absolute;
+			top: -60px;
+			left: 50%;
+			transform: translate(-50%);
+			/* margin: 0 auto; */
+			width: auto;
+			height: 30px;
+			padding: 15px 20px;
+			background-color: rgb(153, 255, 0);
+			border-radius: 20px;
+			transition: all 0.5s;
+			opacity: 0;
+		}
+
+		.tt2 {
+			text-align: center;
+			padding-top: 1px;
+			color: azure;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="nav">
+		<!-- //提示信息 -->
+		<div class="tt">
+			<h3 class="tt2">您还没有登录！</h3>
+		</div>
+		<div class="box-nr">
+			<div id="myname"></div>
+			<div id="Phone"></div>
+			<button>注销账户</button>
+			<img src="../默认头像.png" alt="">
+			<div id="btnxg">
+				<button>修改密码</button>
+			</div>
+		</div>
+		<ul>
+			<li>
+				<div class="PiFt">
+					<img src="../默认头像.png" alt="">
+					<div class="box-s">
+						<span>个人信息</span>
+						<span class="sj"></span>
+					</div>
+				</div>
+			</li>
+			<li><a class="aa1" href="../ViewSpot.html" id="hp" title="返回首页">首页</a></li>
+			<li><a class="aa1" id="aa1" href="javascript:;" title="选择颜色">主题选择</a>
+				<div class="div-s">
+					<ul class="div-s1">
+						<li>
+							<div class="clr" data-color="#Fed71A" style="background-color: #Fed71A;" title="佛手黄"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#EE4866" style="background-color: #EE4866;" title="淡蕊香红"></div>
+						</li>
+
+						<li>
+							<div class="clr" data-color="#7E1671" style="background-color: #7E1671;" title="魏紫"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#856D72" style="background-color: #856D72;" title="卢灰"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#74759B" style="background-color: #74759B;" title="螺甸紫"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#6E8B74" style="background-color: #6E8B74;" title="瓦松绿"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#4A4035" style="background-color: #4A4035;" title="鹤灰"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#F9E9CD" style="background-color: #F9E9CD;" title="米色"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#5C3719" style="background-color: #5C3719;" title="古铜褐"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#F97D1C" style="background-color: #F97D1C;" title="橘橙"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#F0ADA0" style="background-color: #F0ADA0;" title="桃红"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#ED5126" style="background-color: #ED5126;" title="朱红"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#C08EAF" style="background-color: #C08EAF;" title="淡紫"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#1E131D" style="background-color: #1E131D;" title="乌梅紫"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#5698C3" style="background-color: #5698C3;" title="晴蓝"></div>
+						</li>
+						<li>
+							<div class="clr" data-color="#C4CBCF" style="background-color: #C4CBCF;" title="大理石灰"></div>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="box-cp">
+		<h1>随机选菜</h1>
+		<span>今天吃：</span>
+		<h2 id="p1" style="display: inline;"></h2>
+		<br>
+		<button id="btn">开始点菜</button>
+	</div>
+
+	<script>
+		let pp1 = document.querySelector('#p1');	//通过页面元素获取id
+		let btn = document.querySelector('#btn');	//通过页面元素获取id
+		let a = false;
+		let t1;
+		let arr;
+		let SuiJi;
+		btn.addEventListener('click', function () {	//点击页面id为btn的时候调用函数
+			if (a == false) {	//判断是否为真
+				t1 = setInterval('han1()', 50);	//每隔50毫秒调用一次函数
+				btn.innerHTML = '停止点菜';	//替换文本
+				a = true;
+			} else {
+				btn.innerHTML = '开始点菜';
+				a = false;
+				clearInterval(t1);	//停止定时器
+				//从数组里删除出现过的菜品
+				if (true) {
+					arr.splice(SuiJi, 1);
+				}
+			}
+		})
+
+
+		//将菜品放在数组里
+		arr = ['订书机', '内裤', '保龄球', '热水袋', '大熊猫', '雨伞', '水管', '双面胶', '板凳', '电线', '音响', '显卡', '拖鞋', '书', '空气'];
+		function han1() {
+			SuiJi = Math.floor(Math.random() * arr.length);	//根据数组的长度生成随机数
+			pp1.innerHTML = arr[SuiJi];	//通过数组下标查找数组元素并替换
+			if (arr == 0) {
+				btn.style.display = 'none';
+				pp1.innerHTML = `没菜品了`;
+				clearInterval(t1);
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册表单</title>
+    <link href="style\loeds.css" rel="stylesheet">
+    <link href="style\LandingPage.css" rel="stylesheet">
+    <link href="style\RegistrationPage.css" rel="stylesheet">
+
+    <script src="script\RegistrationPage.js" defer></script>
+    <script src="script\LoginPage.js" defer></script>
+    <script src="script\verify.js" defer></script>
+    <style>
+        /* 注册提示 */
+        .box-s .box-ts {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0 auto;
+            height: 50px;
+            background-color: rgb(25, 25, 25);
+            will-change: auto;
+            padding: 0px 10px;
+            border-radius: 20px;
+            transition: all 0.5s;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .box-s .box-ts .box-p {
+            text-align: center;
+            font-weight: bolder;
+            color: rgb(255, 255, 255);
+            margin-top: 12px;
+        }
+
+        /* 登录提示 */
+        .box-dl .tt {
+            position: relative;
+            top: -550px;
+            margin: 0 auto;
+            width: 100px;
+            height: 50px;
+            padding: 0 10px;
+            background-color: red;
+            border-radius: 20px;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .box-dl .tt2 {
+            text-align: center;
+            padding-top: 10px;
+            color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- loeds -->
+    <div class="container">
+        <div class="top">
+            <div class="square">
+                <div class="square">
+                    <div class="square">
+                        <div class="square">
+                            <div class="square">
+                                <div class="square">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="square">
+                <div class="square">
+                    <div class="square">
+                        <div class="square">
+                            <div class="square">
+                                <div class="square">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="left">
+            <div class="square">
+                <div class="square">
+                    <div class="square">
+                        <div class="square">
+                            <div class="square">
+                                <div class="square">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="square">
+                <div class="square">
+                    <div class="square">
+                        <div class="square">
+                            <div class="square">
+                                <div class="square">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 登录页 -->
+    <div class="box-dl">
+        <h2>用户登录</h2>
+        <form action="#" id="fm-dl">
+            <div class="box-dl2">
+                <h5>没有账号？<a href="javascript:;">立即注册</a></h5>
+                <div class="box-fr">
+                    <label for="unm">用户账号：</label><input type="text" placeholder="设置账号名" maxlength="16" id="unm">
+                    <label class="barfr"></label><br><span id="wen-dl"></span><br>
+                </div>
+                <div class="box-fr2">
+                    <label for="pwd">用户密码：</label><input type="password" placeholder="设置密码" maxlength="16" id="pwd">
+                    <label class="yanjing-dl"><img src="image\眼睛_闭.png" alt=""></label>
+                    <label class="barfr2"></label><br><span id="wen-dl2"></span><br>
+                </div>
+            </div>
+            <input class="ints-dl" type="submit" value="登录">
+        </form>
+        <a href="ViewSpot.html" class="youke" data-zi="false">游客访问</a>
+        <!-- 提示信息 -->
+        <div class="tt">
+            <h3 class="tt2">登录成功</h3>
+        </div>
+    </div>
+
+    <!-- 注册页 -->
+    <div class="box-s">
+        <form action="#" id="fm" method="get">
+            <!-- onsubmit="return false" -->
+            <div class="box-s2">
+                <div class="box-bar">
+                    <h5>已有账号？<a href="javascript:;">立即登录</a></h5>
+                    <h2>用户注册</h2>
+                    <label for="pa">用户账号：</label><input type="text" placeholder="设置账号名" maxlength="16" id="pa">
+                    <label class="bar"></label><br><span id="wen"></span><br>
+                </div>
+                <div class="box-bar2">
+                    <label for="yx">用户邮箱：</label><input type="email" placeholder="请输入邮箱" id="yx">
+                    <label class="bar2"></label><br><span id="yhz"></span>
+                    <select id="YouXiao">
+                        <option value="@qq.com">@qq.com</option>
+                        <option value="@126.com">@126.com</option>
+                        <option value="@163.com">@163.com</option>
+                        <option value="@139.com">@139.com</option>
+                        <option value="@189.com">@189.com</option>
+                    </select><br>
+                </div>
+                <div class="box-bar3">
+                    <label for="sj">手机号码：</label><input type="tel" placeholder="请输入手机号" id="sj">
+                    <label class="bar3"></label><br><span id="sjz"></span><br>
+                </div>
+                <div class="box-bar4">
+                    <label for="pp">用户密码：</label><input type="password" placeholder="设置密码" maxlength="16" id="pp">
+                    <label class="yanjing"><img src="image\眼睛_闭.png" alt=""></label>
+                    <label class="bar4"></label><br><span id="wen2"></span><br>
+                </div>
+                <div class="box-bar5">
+                    <label for="pp2">确认密码：</label><input type="password" placeholder="再次输入密码" maxlength="16" id="pp2"
+                        onkeyup="han2()">
+                    <label class="yanjing2"><img src="image\眼睛_闭.png" alt=""></label>
+                    <label class="bar5"></label><span id="wen3"></span><img src="" id="img" alt=""><br>
+                </div>
+
+            </div>
+            <input class="ints" type="submit" value="注册">
+            <p id="xian"></p>
+        </form>
+        <div class="box-ts">
+            <p class="box-p">提交成功</p>
+        </div>
+    </div>
+
+    <script>
+        // loeds 加载
+        window.onload = function () {
+            document.querySelector('.container').style.display = 'none';
+            // document.querySelector('.box-dl').style.opacity = 1;
+            document.querySelector('.box-dl').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>猜数游戏</title>
+	<link href="../新建文件夹\tobuzi.css" type="text/css" rel="stylesheet">
+	<script src="../新建文件夹\tox.js" defer></script>
+	<script src="../script\cyp.js" defer></script>
+	<style>
+		body {
+			background: url('猜数字背景图.jpg');
+			background-size: 100% 100%;
+			/*图片宽高*/
+			background-repeat: no-repeat;
+			/*图片不重复*/
+			background-attachment: fixed;
+			/*固定图片*/
+		}
+
+		.ea .ye p {
+			font-weight: bold;
+		}
+
+		/*背景样式*/
+		.ea {
+			width: 400px;
+			height: 400px;
+			background-color: pink;
+			margin: 200px auto 0;
+		}
+
+		.ea #h1 {
+			cursor: pointer;
+			text-align: center;
+			padding: 180px 0px;
+			background-color: aqua;
+		}
+
+		.ea .ye {
+			padding-top: 20%;
+			text-align: center;
+			display: none;
+		}
+
+		.ea .ye input {
+			width: 150px;
+			height: 40px;
+			text-align: center;
+		}
+
+		.ea .ye button {
+			all: unset;
+			width: 100px;
+			height: 40px;
+			background-color: rgb(255, 0, 247);
+			cursor: pointer;
+			color: azure;
+			margin: 3px auto;
+		}
+
+		.ea .ye button:hover {
+			font-size: 2vh;
+		}
+
+		.ea .ye span {
+			color: red;
+		}
+
+		.ea .ye #btn2 {
+			display: none;
+			/*隐藏按钮*/
+		}
+
+		.ea .ye #da {
+			display: none;
+			/*隐藏查看答案按钮*/
+		}
+
+		/* 提示 */
+		.tt {
+			display: inline-block;
+			position: absolute;
+			top: -60px;
+			left: 50%;
+			transform: translate(-50%);
+			width: auto;
+			height: 30px;
+			padding: 15px 20px;
+			background-color: rgb(153, 255, 0);
+			border-radius: 20px;
+			transition: all 0.5s;
+			opacity: 0;
+		}
+
+		.tt2 {
+			text-align: center;
+			padding-top: 1px;
+			color: azure;
+		}
+
+		/* 注销按钮 */
+		.box-nr button {
+			margin-left: 100px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="nav">
+		<!-- //提示信息 -->
+		<div class="tt">
+			<h3 class="tt2">您还没有登录！</h3>
+		</div>
+		<div class="box-nr">
+			<div id="myname"></div>
+			<div id="Phone"></div>
+			<button>注销账户</button>
+			<img src="../默认头像.png" alt="">
+			<div id="btnxg">
+				<button>修改密码</button>
+			</div>
+		</div>
+		<ul>
+			<li>
+				<div class="PiFt">
+					<img src="../默认头像.png" alt="">
+					<div class="box-s">
+						<span>个人信息</span>
+						<span class="sj"></span>
+					</div>
+				</div>
+			</li>
+			<li><a class="aa1" href="../ViewSpot.html" id="hp" title="返回首页">首页</a></li>
+			<li><a class="aa1" id="aa1" href="javascript:;" title="选择颜色">主题选择</a>
+				<div class="div-s">
+					<ul class="div-s1">
+						<li>
+							<div class="clr" data-color="#Fed71A" style="background-color: #Fed71A;" title="佛手黄">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#EE4866" style="background-color: #EE4866;" title="淡蕊香红">
+							</div>
+						</li>
+
+						<li>
+							<div class="clr" data-color="#7E1671" style="background-color: #7E1671;" title="魏紫">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#856D72" style="background-color: #856D72;" title="卢灰">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#74759B" style="background-color: #74759B;" title="螺甸紫">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#6E8B74" style="background-color: #6E8B74;" title="瓦松绿">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#4A4035" style="background-color: #4A4035;" title="鹤灰">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#F9E9CD" style="background-color: #F9E9CD;" title="米色">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#5C3719" style="background-color: #5C3719;" title="古铜褐">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#F97D1C" style="background-color: #F97D1C;" title="橘橙">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#F0ADA0" style="background-color: #F0ADA0;" title="桃红">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#ED5126" style="background-color: #ED5126;" title="朱红">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#C08EAF" style="background-color: #C08EAF;" title="淡紫">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#1E131D" style="background-color: #1E131D;" title="乌梅紫">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#5698C3" style="background-color: #5698C3;" title="晴蓝">
+							</div>
+						</li>
+						<li>
+							<div class="clr" data-color="#C4CBCF" style="background-color: #C4CBCF;" title="大理石灰">
+							</div>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<div class="ea">
+		<h1 onclick="han3()" id="h1" title="点击">进入猜数游戏</h1>
+		<div class="ye" id="yx">
+			<p>请输入&nbsp;<span>1</span>到<span>100</span>&nbsp;之间的数字</p>
+			<p>(你只有10次机会)</p>
+			<input type="number" id="test">
+			<br>
+			<p id="tihuan">&nbsp;</p>
+			<button type="button" id="btn2" onclick="han1()">再来一局</button>
+			<button type="button" id="btn" onclick="han1()">点击开始</button> <!-- 通过按钮绑定函数 -->
+			<button type="button" id="da" onclick="alert('答案为:' +su)">查看答案</button>
+		</div>
+	</div>
+
+	<script>
+		function han3() {
+			document.getElementById('h1').style.display = 'none';	//隐藏标题
+			document.getElementById('yx').style.display = 'block';	//显示游戏
+		}
+		let j = 0; //初始化
+		let wen;
+		let tests = document.getElementById('test');
+		let tihuan = document.getElementById('tihuan');
+		let btn2 = document.getElementById('btn2');	//获取页面元素id并赋值给变量
+		let btn = document.getElementById('btn');
+		let da = document.getElementById('da');
+		let su = Math.floor(Math.random() * 100 + 1); //生成随机数(1~100)
+		function han1() {
+			// let zi = document.getElementById('test').value;
+			da.style.display = 'block'; //显示查看答案
+			da.style.margin = 'auto';	//设置按钮居中
+			wen = tests.value; //获取id为tests的值
+			if (true) {
+				// console.log(123);
+				let fu = parseInt(wen)
+				tests.value = fu;
+			}
+			console.log(typeof wen);
+			j++; //计数
+			btn.onmousedown = function () {	//点击按钮改变颜色
+				btn.style.backgroundColor = 'red';
+			}
+			btn.onmouseup = function () {
+				btn.style.backgroundColor = '';
+			}
+			if (wen == '') {
+				alert('还没有输入数字！！！'); //弹窗
+				j -= 1;	//计数-1
+				da.style.display = 'none';
+			} else if (wen == 0) { //判断用户是否输入
+				alert('请输入1到100之间的数字');
+				j -= 1;	//计数-1
+				da.style.display = 'none'; // //将查看答案隐藏
+			} else if (wen <= 100 && wen >= 1) {
+				//判断用户输入的数值和随机数
+				if (parseInt(wen) == su) {
+					tihuan.innerHTML = '恭喜你猜对啦！<br>你只猜了' + j + '次就对啦!'; //替换文本
+					btn.style.display = 'none';	//隐藏按钮
+					da.style.display = 'none'; //将查看答案隐藏
+					btn2.style.display = 'block';	//显示按钮
+					han2();	//调用函数
+				} else if (wen < su) { //判断用户输入的数值和随机数
+					tihuan.innerHTML = '猜小啦<br>你已猜' + j + '次了哦<br>'; //替换文本
+					btn.innerHTML = '继续猜';
+					btn2.innerHTML = '继续猜';
+				} else if (wen > su) { //判断用户输入的数值和随机数
+					tihuan.innerHTML = '猜大啦<br>你已猜' + j + '次了哦！'; //替换文本
+					btn.innerHTML = '继续猜';
+					btn2.innerHTML = '继续猜';
+				}
+				if (j == 10) {
+					btn.style.display = 'none';	//隐藏按钮
+					tihuan.innerHTML = '<br>你已猜' + j + '次了哦！<br>答案为：' + su; //替换文本
+					btn2.style.display = 'block';	//显示按钮
+					da.style.display = 'none'; //将查看答案隐藏
+					han2();	//调用函数
+				}
+			} else {
+				alert('请输入1到100之间的数字');
+				da.style.display = 'none'; //将查看答案隐藏
+				j -= 1;	//计数-1
+			}
+
+			function han2() {
+				j = 0; //初始化
+				tests.value = null;	//把页面元素id为tests的值改为空值
+				btn2.style.margin = 'auto';	//设置按钮居中
+				btn2.innerHTML = '再来一局';	//更改页面元素id为btn2的值
+				let su2 = Math.floor(Math.random() * 100 + 1); //生成随机数
+				su = su2;	//把新生成的随机数赋值给su
+			}
+			//鼠标点击文本框时清除tests的值
+			tests.onclick = function () {
+				tests.value = null;
+			}
+
+		}
+	</script>
+</body>
+
+</html>

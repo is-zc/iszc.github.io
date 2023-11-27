@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.nav {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(209, 209, 218);
+    box-shadow: 10px 10px 10px -8px rgb(0, 0, 0, 3);
+    position: fixed;
+    top: -60px;
+    right: 0;
+    float: right;
+    transition: all 0.5s;
+    z-index: 1;
+}
+
+.nav:hover {
+    box-shadow: 10px 10px 10px -4px rgb(0, 0, 0, 3);
+    transition: 0.3s;
+}
+
+.nav a {
+    text-decoration: none;
+    color: rgb(107, 35, 174);
+    font-weight: bold;
+}
+
+.nav ul li {
+    list-style: none;
+    margin: 0 20px 0;
+    margin-top: 20px;
+    float: right;
+    text-align: right;
+    transition: all 0.5s;
+}
+
+/* 标题下划线 */
+.nav .aa1 {
+    transition: all 0.3s;
+}
+
+.nav .aa1:hover {
+    padding-bottom: 5px;
+    padding-right: 1px;
+    border-bottom: 3px solid #bb1dff;
+}
+
+/* 主题定位 */
+.nav .div-s {
+    width: 0;
+    margin-top: 20px;
+    display: none;
+    position: relative;
+    top: 5%;
+    right: 250px;
+    transition: all 0.5s;
+}
+
+.nav ul li:hover .div-s {
+    display: block;
+}
+
+/* 主题内容 */
+.nav .div-s .div-s1 {
+    width: 400px;
+    height: 240px;
+    border-radius: 5%;
+    font-size: 1.1em;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px -4px rgb(0, 0, 0, 0.5);
+    padding-right: 8%;
+    position: relative;
+    left: 0%;
+    top: 5%;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    padding-top: 25px;
+    padding-right: 45px;
+}
+
+.nav .div-s .div-s1 li {
+    margin: 10px 10px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    padding: 2px;
+}
+
+.nav .div-s .div-s1 li:hover {
+    border: 3px solid rgb(255, 255, 0);
+}
+
+.nav .div-s .div-s1 li .active:hover {
+    border: 3px solid rgb(255, 255, 0);
+}
+
+/* 主题色块 */
+.nav .div-s1 .clr {
+    width: 60px;
+    height: 25px;
+}

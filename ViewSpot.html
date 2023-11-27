@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择</title>
+    <link href="style/viewspot/tobu.css" type="text/css" rel="stylesheet">
+    <link href="style/viewspot/body.css" type="text/css" rel="stylesheet">
+
+    <script src="script\cyp.js" defer></script>
+    <script src="script\body.js" defer></script>
+    <!-- <script src="script\LoginPage.js" defer></script> -->
+    <script src="script\AvatarContent.js" defer></script>
+    <style>
+        body {
+            background: url(image/背景.png) no-repeat center/cover fixed;
+        }
+
+        /* 头像 */
+        .nav .PiFt {
+            width: 0px;
+            position: absolute;
+            top: 10px;
+            left: 50px;
+            cursor: pointer;
+        }
+
+        .nav .PiFt .box-s {
+            width: 170px;
+            position: relative;
+            top: 20px;
+            left: 64px;
+            opacity: 0;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(1, 1, .29, 1.89);
+        }
+
+        .nav .PiFt img:hover+.box-s {
+            position: relative;
+            top: 30px;
+            opacity: 1;
+        }
+
+
+        .nav .PiFt .box-s span {
+            cursor: default;
+            position: absolute;
+            top: 0%;
+            left: -26%;
+            transform: translate(-50%, -60%);
+            color: aliceblue;
+            font-weight: 800;
+            background-color: rgb(0, 0, 0);
+            padding: 5px 10px;
+        }
+
+        .nav .PiFt .box-s .sj {
+            display: inline-block;
+            width: 0px;
+            height: 10px;
+            background-color: rgb(0, 0, 0);
+            margin-top: -21px;
+            margin-left: -10px;
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        .nav .PiFt img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* 个人信息内容 */
+        .nav .box-nr {
+            width: 300px;
+            height: 100vh;
+            position: fixed;
+            top: 0px;
+            left: -300px;
+            z-index: -1;
+            /* background-color: rgb(243, 243, 243); */
+            background: rgba(255, 255, 255, 0);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+            transition: all 0.3s;
+        }
+
+        /* 内容头像 */
+        .box-nr img {
+            position: relative;
+            top: -200px;
+            left: -73px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .box-nr div {
+            color: red;
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%);
+        }
+
+        .box-nr #Phone {
+            text-align: center;
+        }
+
+        .box-nr div:not(:nth-child(1)) {
+            margin-top: 50px;
+        }
+
+        /* 注销按钮 */
+        .box-nr button {
+            height: 30px;
+            width: 100px;
+            position: relative;
+            background-color: transparent;
+            cursor: pointer;
+            border: 2px solid #252525;
+            overflow: hidden;
+            border-radius: 30px;
+            color: #333;
+            margin-top: 250px;
+            margin-left: 100px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .box-nr button {
+            z-index: 1;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .box-nr button::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 0.3s ease-in-out;
+            background-color: #ff4747;
+            border-radius: 30px;
+            visibility: hidden;
+            height: 10px;
+            width: 10px;
+            z-index: -1;
+        }
+
+        .box-nr button:hover {
+            box-shadow: 1px 1px 200px #252525;
+            color: #fff;
+            border: none;
+        }
+
+        .box-nr button:hover::after {
+            visibility: visible;
+            transform: scale(100) translateX(2px);
+
+        }
+
+        /* .box-nr button:hover::after {
+            background-color: greenyellow;
+        } */
+
+        /* 修改按钮 */
+        .box-nr #btnxg button {
+            margin: 150px auto;
+        }
+
+        .box-nr #btnxg button::after {
+            background-color: rgb(40, 225, 68);
+        }
+
+        .box-nr #btnxg button:hover::after {
+            visibility: visible;
+            transform: scale(100) translateX(2px);
+        }
+
+
+        /* 欢迎提示 */
+        .tt {
+            display: inline-block;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translate(-50%);
+            width: auto;
+            height: 30px;
+            padding: 15px 20px;
+            background-color: rgb(153, 255, 0);
+            border-radius: 20px;
+            z-index: 1;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .tt2 {
+            text-align: center;
+            padding-top: 1px;
+            color: azure;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 欢迎提示 -->
+    <div class="tt">
+        <h3 class="tt2"></h3>
+    </div>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <div class="box-nr">
+            <div id="myname"></div>
+            <div id="Phone"></div>
+            <button>注销账户</button>
+            <img src="默认头像.png" alt="">
+            <div id="btnxg">
+                <button>修改密码</button>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <div class="PiFt">
+                    <img src="默认头像.png" alt="">
+                    <div class="box-s">
+                        <span>个人信息</span>
+                        <span class="sj"></span>
+                    </div>
+                </div>
+            </li>
+            <li><a class="aa1" href="javascript:;" id="hp" title="返回首页">首页</a></li>
+            <li><a class="aa1" id="aa1" href="##" title="选择主题">主题选择</a>
+                <div class="div-s">
+                    <ul class="div-s1">
+                        <li>
+                            <div class="clr" data-color="#Fed71A" style="background-color: #Fed71A;" title="佛手黄">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#EE4866" style="background-color: #EE4866;" title="淡蕊香红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#7E1671" style="background-color: #7E1671;" title="魏紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#856D72" style="background-color: #856D72;" title="卢灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#74759B" style="background-color: #74759B;" title="螺甸紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#6E8B74" style="background-color: #6E8B74;" title="瓦松绿">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#4A4035" style="background-color: #4A4035;" title="鹤灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F9E9CD" style="background-color: #F9E9CD;" title="米色">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5C3719" style="background-color: #5C3719;" title="古铜褐">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F97D1C" style="background-color: #F97D1C;" title="橘橙">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F0ADA0" style="background-color: #F0ADA0;" title="桃红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#ED5126" style="background-color: #ED5126;" title="朱红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C08EAF" style="background-color: #C08EAF;" title="淡紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#1E131D" style="background-color: #1E131D;" title="乌梅紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5698C3" style="background-color: #5698C3;" title="晴蓝">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C4CBCF" style="background-color: #C4CBCF;" title="大理石灰">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <h1 class="h1">选择</h1>
+    <!-- 游戏主图 -->
+    <div class="main-box">
+        <div>
+            <h2>表白网</h2>
+            <a href="新建文件夹\表白网.html">
+                <img src="游戏1.jpg" alt=""><br>
+                <h1>了解详情</h1>
+            </a>
+        </div>
+        <div>
+            <h2>猜数字</h2>
+            <a href="新建文件夹\猜数.html">
+                <img src="新建文件夹\猜数字背景图.jpg" alt="" data-i="0">
+                <h1 data-i="0">了解详情</h1>
+            </a>
+        </div>
+        <div>
+            <h2>取色器</h2>
+            <a href="新建文件夹\取色器.html">
+                <img src="image\ys.jpg" alt="">
+                <h1>了解详情</h1>
+            </a>
+        </div>
+        <div>
+            <h2>崩溃狗的餐厅</h2>
+            <a href="新建文件夹\崩溃狗的餐厅.html">
+                <img src="image\ct.jpg" alt="" data-i="0">
+                <h1 data-i="0">了解详情</h1>
+            </a>
+        </div>
+        <div>
+            <h2>今天吃什么</h2>
+            <a href="新建文件夹\今天吃什么.html">
+                <img src="image\wh.jpg" alt="">
+                <h1>了解详情</h1>
+            </a>
+        </div>
+    </div>
+    <!-- <hr class="hr2"> -->
+    <footer>
+        <span>相关信息如有问题请联系&copy;</span>
+        <div class="ju">
+            <div class="wtu">
+                <img class="xs" src="image\wtu1.jpg" alt="图片丢失">
+                <img src="image\weixin.png" alt="图片丢失" title="扫描二维码添加">
+            </div>
+            <div class="wtu">
+                <img class="xs1" src="image\qq.jpg" alt="图片丢失">
+                <img src="image\QQ.png" alt="图片丢失" title="扫描二维码添加" style="width: 35px; height: 40px;">
+            </div>
+        </div>
+    </footer>
+    <script>
+        //用户进入自动提示
+        (function () {
+            let tsxx = document.querySelector('.tt');
+            tsxx.style.opacity = 1;
+            setTimeout(function () {
+                tsxx.style.top = '50px';
+            }, 500);
+            //提示信息收回
+            setTimeout(function () {
+                tsxx.style.opacity = 0;
+                tsxx.style.top = '-60px';
+            }, 1500);
+        }())
+
+        //显示导航栏
+        const nr = document.querySelector('.main-box');
+        const tie = document.querySelector('.nav');
+        window.addEventListener('scroll', function () {
+            let b = document.documentElement.scrollTop; //获取元素的距离顶部的高度
+            tie.style.top = b >= nr.offsetTop ? 0 : '-60px';
+        })
+    </script>
+</body>
+
+</html>

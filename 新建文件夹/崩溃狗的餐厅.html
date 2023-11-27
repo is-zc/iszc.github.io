@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>崩溃狗的餐厅</title>
+    <link href="../新建文件夹\tobuzi.css" type="text/css" rel="stylesheet">
+    <script src="../新建文件夹\tox.js" defer></script>
+    <script src="../script\cyp.js" defer></script>
+    <style>
+        body {
+            background-color: turquoise;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box1 {
+            width: 500px;
+            margin: 150px auto;
+            text-align: center;
+        }
+
+        .box1 .ul1 {
+            margin-top: 20px;
+            margin-left: -35px;
+        }
+
+        .box1 .ul1 li {
+            margin-top: 5px;
+        }
+
+        .ul1 li {
+            width: 100px;
+            color: rgb(255, 255, 255);
+            background-color: rgba(255, 64, 64, 0.8);
+            margin: 3px 0;
+            border-radius: 10px;
+            text-align: center;
+            animation: 0.5s cubic-bezier(.25, 1, .30, 1) diamond-in-hesitate both;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        @keyframes diamond-in-hesitate {
+            0% {
+                clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+            }
+
+            50% {
+                clip-path: polygon(45% 50%, 50% 25%, 55% 50%, 50% 75%);
+            }
+
+            100% {
+                clip-path: polygon(-50% 50%, 50% -50%, 150% 50%, 50% 150%);
+            }
+        }
+
+        .box2 {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .box2 h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            color: rgb(11, 106, 123);
+        }
+
+        .ul2 li {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #fefefe;
+            text-transform: uppercase;
+            color: #fefefe;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .ul2 li::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% - 12px);
+            background-color: turquoise;
+            transition: 0.2s ease-in-out;
+            transform: scaleY(1);
+        }
+
+        .ul2 li:hover::before {
+            transform: scaleY(0);
+        }
+
+        .ul2 li::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: -2px;
+            height: calc(100% + 4px);
+            width: calc(100% - 12px);
+            background-color: turquoise;
+            transition: 0.2s ease-in-out;
+            transform: scaleX(1);
+            transition-delay: 0.2s;
+        }
+
+        .ul2 li:hover::after {
+            transform: scaleX(0);
+        }
+
+        .ul2 li span {
+            position: relative;
+            z-index: 3;
+        }
+
+        .ul2 li span {
+            width: fit-content;
+            background-color: none;
+            text-decoration: none;
+            color: rgb(210, 255, 192);
+            font-weight: bold;
+            border: none;
+        }
+
+        .box2 button {
+            height: 30px;
+            width: 100px;
+            position: relative;
+            background-color: transparent;
+            cursor: pointer;
+            border: 2px solid #252525;
+            overflow: hidden;
+            border-radius: 30px;
+            color: #333;
+            margin-top: 30px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .box2 button {
+            z-index: 1;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .box2 button::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all 0.5s ease-in-out;
+            background-color: #ff4747;
+            border-radius: 30px;
+            visibility: hidden;
+            height: 10px;
+            width: 10px;
+            z-index: -1;
+        }
+
+        .box2 button:hover {
+            box-shadow: 1px 1px 200px #252525;
+            color: #fff;
+            border: none;
+        }
+
+        .box2 button:hover::after {
+            visibility: visible;
+            transform: scale(100) translateX(2px);
+        }
+
+        /* 提示 */
+        .tt {
+            display: inline-block;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translate(-50%);
+            width: auto;
+            height: 30px;
+            padding: 15px 20px;
+            background-color: rgb(153, 255, 0);
+            border-radius: 20px;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .tt2 {
+            text-align: center;
+            padding-top: 1px;
+            color: azure;
+        }
+
+        /* 注销按钮 */
+        .box-nr button {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <!-- //提示信息 -->
+        <div class="tt">
+            <h3 class="tt2">您还没有登录！</h3>
+        </div>
+        <div class="box-nr">
+            <div id="myname"></div>
+            <div id="Phone"></div>
+            <button>注销账户</button>
+            <img src="../默认头像.png" alt="">
+            <div id="btnxg">
+                <button>修改密码</button>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <div class="PiFt">
+                    <img src="../默认头像.png" alt="">
+                    <div class="box-s">
+                        <span>个人信息</span>
+                        <span class="sj"></span>
+                    </div>
+                </div>
+            </li>
+            <li><a class="aa1" href="../ViewSpot.html" id="hp" title="返回首页">首页</a></li>
+            <li><a class="aa1" id="aa1" href="javascript:;" title="选择颜色">主题选择</a>
+                <div class="div-s">
+                    <ul class="div-s1">
+                        <li>
+                            <div class="clr" data-color="#Fed71A" style="background-color: #Fed71A;" title="佛手黄">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#EE4866" style="background-color: #EE4866;" title="淡蕊香红">
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="clr" data-color="#7E1671" style="background-color: #7E1671;" title="魏紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#856D72" style="background-color: #856D72;" title="卢灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#74759B" style="background-color: #74759B;" title="螺甸紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#6E8B74" style="background-color: #6E8B74;" title="瓦松绿">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#4A4035" style="background-color: #4A4035;" title="鹤灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F9E9CD" style="background-color: #F9E9CD;" title="米色">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5C3719" style="background-color: #5C3719;" title="古铜褐">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F97D1C" style="background-color: #F97D1C;" title="橘橙">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F0ADA0" style="background-color: #F0ADA0;" title="桃红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#ED5126" style="background-color: #ED5126;" title="朱红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C08EAF" style="background-color: #C08EAF;" title="淡紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#1E131D" style="background-color: #1E131D;" title="乌梅紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5698C3" style="background-color: #5698C3;" title="晴蓝">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C4CBCF" style="background-color: #C4CBCF;" title="大理石灰">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="box1">
+        <h1>《奔溃狗餐厅》</h1>
+        <ul class="ul1">
+
+        </ul>
+    </div>
+    <div class="box2">
+        <h2>请选着您要吃的菜品</h2>
+        <ul class="ul2">
+            <li><span>玫瑰汤</span></li>
+            <li><span>石头汤</span></li>
+            <li><span>火箭汤</span></li>
+            <li><span>键盘汤</span></li>
+            <li><span>鼠标汤</span></li>
+            <li><span>钥匙汤</span></li>
+        </ul>
+        <button id="btn">删除</button>
+    </div>
+    <script>
+        //获取需要添加节点的ul
+        const ul = document.querySelector('.box1 ul')
+        //通过事件委托给父级
+        //获取父元素
+        const ul2 = document.querySelector('.box2 ul')
+        //添加事件监听
+        ul2.addEventListener('click', function (e) {
+            //创建节点
+            const li = document.createElement('li')
+            //只有点击li或span才会添加节点
+            if (e.target.tagName === 'LI' || e.target.tagName === 'SPAN') {
+                //获取点击的对象和值并赋值给li
+                li.innerHTML = e.target.innerText
+                // //追加节点
+                ul.appendChild(li)
+            }
+        })
+        document.querySelector('#btn').addEventListener('click', function () {
+            //删除节点
+            ul.removeChild(ul.lastChild)
+        })
+    </script>
+</body>
+
+</html

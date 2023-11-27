@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取色器</title>
+    <link href="../新建文件夹\tobuzi.css" type="text/css" rel="stylesheet">
+    <script src="../新建文件夹\tox.js" defer></script>
+    <script src="../script\cyp.js" defer></script>
+    <style>
+        .qsq {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .qsq h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: azure;
+            font-size: 3em;
+        }
+
+        /* 提示 */
+        .tt {
+            display: inline-block;
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translate(-50%);
+            width: auto;
+            height: 30px;
+            padding: 15px 20px;
+            background-color: rgb(153, 255, 0);
+            border-radius: 20px;
+            transition: all 0.5s;
+            opacity: 0;
+        }
+
+        .tt2 {
+            text-align: center;
+            padding-top: 1px;
+            color: azure;
+        }
+
+        /* 注销按钮 */
+        .box-nr button {
+            margin-left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <!-- //提示信息 -->
+        <div class="tt">
+            <h3 class="tt2">您还没有登录！</h3>
+        </div>
+        <div class="box-nr">
+            <div id="myname"></div>
+            <div id="Phone"></div>
+            <button>注销账户</button>
+            <img src="../默认头像.png" alt="">
+            <div id="btnxg">
+                <button>修改密码</button>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <div class="PiFt">
+                    <img src="../默认头像.png" alt="">
+                    <div class="box-s">
+                        <span>个人信息</span>
+                        <span class="sj"></span>
+                    </div>
+                </div>
+            </li>
+            <li><a class="aa1" href="../ViewSpot.html" id="hp" title="返回首页">首页</a></li>
+            <li><a class="aa1" id="aa1" href="javascript:;" title="选择颜色">主题选择</a>
+                <div class="div-s">
+                    <ul class="div-s1">
+                        <li>
+                            <div class="clr" data-color="#Fed71A" style="background-color: #Fed71A;" title="佛手黄">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#EE4866" style="background-color: #EE4866;" title="淡蕊香红">
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="clr" data-color="#7E1671" style="background-color: #7E1671;" title="魏紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#856D72" style="background-color: #856D72;" title="卢灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#74759B" style="background-color: #74759B;" title="螺甸紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#6E8B74" style="background-color: #6E8B74;" title="瓦松绿">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#4A4035" style="background-color: #4A4035;" title="鹤灰">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F9E9CD" style="background-color: #F9E9CD;" title="米色">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5C3719" style="background-color: #5C3719;" title="古铜褐">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F97D1C" style="background-color: #F97D1C;" title="橘橙">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#F0ADA0" style="background-color: #F0ADA0;" title="桃红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#ED5126" style="background-color: #ED5126;" title="朱红">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C08EAF" style="background-color: #C08EAF;" title="淡紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#1E131D" style="background-color: #1E131D;" title="乌梅紫">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#5698C3" style="background-color: #5698C3;" title="晴蓝">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="clr" data-color="#C4CBCF" style="background-color: #C4CBCF;" title="大理石灰">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="qsq">
+        <label>选择你需要的颜色：</label> <input id="ipt" type="color" onblur="han1()">
+        <h1></h1>
+    </div>
+
+    <script>
+        function han1() {
+            let a = ipt.value;
+            document.querySelector('body').style.backgroundColor = a;
+            document.querySelector('h1').innerHTML = a;
+            if (a == '#ffffff') {   //背景为白色 字体为黑色
+                document.querySelector('.qsq h1').style.color = '#000000'
+                document.querySelector('.qsq label').style.color = '#000000'
+            } else if (a == '#000000') {    //背景为黑色 字体为白色
+                document.querySelector('.qsq h1').style.color = '#ffffff'
+                document.querySelector('.qsq label').style.color = '#ffffff'
+            } else {    //字体为白色
+                document.querySelector('.qsq h1').style.color = '#ffffff'
+                document.querySelector('.qsq label').style.color = '#ffffff'
+            }
+        }
+    </script>
+</body>
+
+</html>

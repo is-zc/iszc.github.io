@@ -1,0 +1,253 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.nav {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(209, 209, 218);
+    box-shadow: 10px 10px 10px -8px rgb(0, 0, 0, 3);
+    position: fixed;
+    top: 0px;
+    right: 0;
+    float: right;
+    transition: all 0.5s;
+    z-index: 1;
+}
+
+.nav:hover {
+    box-shadow: 10px 10px 10px -4px rgb(0, 0, 0, 3);
+    transition: 0.3s;
+}
+
+.nav a {
+    text-decoration: none;
+    color: rgb(107, 35, 174);
+    font-weight: bold;
+}
+
+.nav ul li {
+    list-style: none;
+    margin: 0 20px 0;
+    margin-top: 20px;
+    float: right;
+    text-align: right;
+    transition: all 0.5s;
+}
+
+/* 标题下划线 */
+.nav .aa1 {
+    transition: all 0.3s;
+}
+
+.nav .aa1:hover {
+    padding-bottom: 5px;
+    padding-right: 1px;
+    border-bottom: 3px solid #bb1dff;
+}
+
+/* 主题定位 */
+.nav .div-s {
+    width: 0;
+    margin-top: 20px;
+    display: none;
+    position: relative;
+    top: 5%;
+    right: 250px;
+    transition: all 0.5s;
+}
+
+.nav ul li:hover .div-s {
+    display: block;
+}
+
+/* 主题内容 */
+.nav .div-s .div-s1 {
+    width: 400px;
+    height: 240px;
+    border-radius: 5%;
+    font-size: 1.1em;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 10px -4px rgb(0, 0, 0, 0.5);
+    padding-right: 8%;
+    position: relative;
+    left: 0%;
+    top: 5%;
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    padding-top: 25px;
+    padding-right: 45px;
+}
+
+.nav .div-s .div-s1 li {
+    margin: 10px 10px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    padding: 3px;
+}
+
+.nav .div-s .div-s1 li:hover {
+    border: 3px solid rgb(255, 255, 0);
+}
+
+/* 主题色块 */
+.nav .div-s1 .clr {
+    width: 60px;
+    height: 25px;
+}
+
+/* 头像 */
+.nav .PiFt {
+    width: 0px;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    cursor: pointer;
+}
+
+.nav .PiFt .box-s {
+    width: 170px;
+    position: relative;
+    top: 20px;
+    left: 64px;
+    opacity: 0;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(1, 1, .29, 1.89);
+}
+
+.nav .PiFt img:hover+.box-s {
+    position: relative;
+    top: 30px;
+    opacity: 1;
+}
+
+.nav .PiFt .box-s span {
+    cursor: default;
+    position: absolute;
+    top: 0%;
+    left: -26%;
+    transform: translate(-50%, -60%);
+    color: aliceblue;
+    font-weight: 800;
+    background-color: rgb(0, 0, 0);
+    padding: 5px 10px;
+}
+
+.nav .PiFt .box-s .sj {
+    display: inline-block;
+    width: 0px;
+    height: 10px;
+    background-color: rgb(0, 0, 0);
+    margin-top: -21px;
+    margin-left: -10px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.nav .PiFt img {
+    width: 40px;
+    height: 40px;
+}
+
+/* 个人信息内容 */
+.nav .box-nr {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: -300px;
+    z-index: -1;
+    /* background-color: rgba(243, 243, 243, 0); */
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    transition: all 0.3s;
+}
+
+/* 内容头像 */
+.box-nr img {
+    position: relative;
+    top: -200px;
+    left: -73px;
+    width: 40px;
+    height: 40px;
+}
+
+.box-nr div {
+    color: red;
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%);
+}
+
+.box-nr #Phone {
+    text-align: center;
+}
+
+.box-nr div:not(:nth-child(1)) {
+    margin-top: 50px;
+}
+
+/* 注销按钮 */
+.box-nr button {
+    height: 30px;
+    width: 100px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #252525;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #333;
+    margin-top: 250px;
+    margin-left: 45px;
+    transition: all 0.3s ease-in-out;
+}
+
+.box-nr button {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.box-nr button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    background-color: #ff4747;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+}
+
+.box-nr button:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #fff;
+    border: none;
+}
+
+.box-nr button:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+}
+
+/* 修改按钮 */
+.box-nr #btnxg button {
+    margin: 150px auto;
+}
+
+.box-nr #btnxg button::after {
+    background-color: rgb(40, 225, 68);
+}
+
+.box-nr #btnxg button:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+}
